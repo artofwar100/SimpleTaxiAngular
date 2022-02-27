@@ -1,0 +1,56 @@
+<div class="mb-3" *ngIf="pageMode == pageModeEnum.Create">
+  <span class="text-success h2">Add New Driver</span>
+</div>
+<div class="mb-3" *ngIf="pageMode == pageModeEnum.Edit">
+  <span class="text-info h2 mr-2">Edit</span>
+  <span class="text-warning h2">{{ driver.name }} - {{ driver.rating }}</span>
+</div>
+
+<form class="example-form" [formGroup]="driverForm" (ngSubmit)="createEdit()">
+  <mat-form-field class="example-full-width d-flex" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input type="text" matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width d-flex" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input type="text" matInput formControlName="email" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width d-flex" appearance="fill">
+    <mat-label>Phono Number</mat-label>
+    <input type="text" matInput formControlName="phoneNumber" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width d-flex" appearance="fill">
+    <mat-label>Rating</mat-label>
+    <input type="text" matInput formControlName="rating" />
+  </mat-form-field>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option *ngFor="let gender of genders" [value]="gender">
+          {{ gender2LabelMapping[gender] }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <button
+    *ngIf="pageMode == pageModeEnum.Create"
+    type="submit"
+    class="btn btn-success d-flex"
+  >
+    <span>Add</span>
+  </button>
+
+  <button
+    *ngIf="pageMode == pageModeEnum.Edit"
+    type="submit"
+    class="btn btn-info d-flex"
+  >
+    <span>Save</span>
+  </button>
+</form>

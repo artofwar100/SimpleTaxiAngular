@@ -1,0 +1,67 @@
+<div class="mb-3" *ngIf="pageMode == pageModeEnum.Create">
+  <span class="text-success h2">Add New Car</span>
+</div>
+<div class="mb-3" *ngIf="pageMode == pageModeEnum.Edit">
+  <span class="text-info h2 mr-2">Edit</span>
+  <span class="text-warning h2">{{ car.name }} - {{ car.plateNumber }}</span>
+</div>
+
+<form class="example-form" [formGroup]="carForm" (ngSubmit)="createEdit()">
+  <mat-form-field class="example-full-width d-flex" appearance="fill">
+    <mat-label>Plate Number</mat-label>
+    <input type="text" matInput formControlName="plateNumber" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width d-flex" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input type="text" matInput formControlName="name" />
+  </mat-form-field>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Make Year</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="makeYear" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+          <mat-label>Fuel Type</mat-label>
+          <mat-select formControlName="fuelType">
+            <mat-option *ngFor="let fuletype of fuletypes" [value]="fuletype">
+              {{ fuelType2LabelMapping[fuletype] }}
+            </mat-option>
+          </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+          <mat-label>Car Type</mat-label>
+          <mat-select formControlName="carType">
+            <mat-option *ngFor="let carType of cartypes" [value]="carType">
+              {{ carType2LabelMapping[carType] }}
+            </mat-option>
+          </mat-select>
+    </mat-form-field>
+  </div>
+
+
+  <button
+    *ngIf="pageMode == pageModeEnum.Create"
+    type="submit"
+    class="btn btn-success d-flex"
+  >
+    <span>Add</span>
+  </button>
+
+  <button
+    *ngIf="pageMode == pageModeEnum.Edit"
+    type="submit"
+    class="btn btn-info d-flex"
+  >
+    <span>Save</span>
+  </button>
+</form>

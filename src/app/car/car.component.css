@@ -1,0 +1,13 @@
+.text-algin-cent {
+  text-align: center;
+}
+
+.letterspace {
+  letter-spacing: 1px;
+}
+.spinnerss {
+  position: absolute;
+  margin-left: 500px;
+  width: 70px;
+  height: 70px;
+}

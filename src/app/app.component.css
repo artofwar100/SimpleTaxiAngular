@@ -1,0 +1,30 @@
+.logoo {
+  width: 30px;
+}
+.fontsizee {
+  font-size: 40px;
+}
+
+.bgbanner {
+  background-color: #f5efdf;
+}
+.hzz {
+  border-bottom: 1px solid #1f1209;
+  box-shadow: 0 20px 20px -20px #333;
+}
+.w-150 {
+  width: 150px;
+}
+.text-algin-cent {
+  text-align: center;
+}
+.letterspace {
+  letter-spacing: 1px;
+}
+.card{
+    border: 0px solid;
+}
+.cardLogo{
+    font-size: 55px;
+    display: contents;
+}
